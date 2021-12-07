@@ -20,14 +20,14 @@ stages:
       dotnetSdkVersion: '5.x'
 
     steps:
-    - task: UseDotNet@2
-      displayName: 'Use .NET SDK $(dotnetSdkVersion)'
-      inputs:
-        version: '$(dotnetSdkVersion)'
     - task: NodeTool@0
       inputs:
         versionSpec: '6.x'
         checkLatest: true
+    - task: UseDotNet@2
+      displayName: 'Use .NET SDK $(dotnetSdkVersion)'
+      inputs:
+        version: '$(dotnetSdkVersion)'
 
     - task: Npm@1
       displayName: 'Run npm install'
